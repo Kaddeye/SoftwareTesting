@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-03-25T01:08:15.120012" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Swag Labs" source="C:\Users\kathi\VisualStudioProjects\SoftwareTesting\robot-testing-project\tests\test_swag_labs.robot">
+<test id="s1-t1" name="Swag Labs E2E Test" line="9">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-03-25T01:08:15.306885" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-03-25T01:08:15.306658" elapsed="1.238941"/>
+</kw>
+<kw name="Set Selenium Speed" owner="SeleniumLibrary">
+<arg>0.5s</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" start="2026-03-25T01:08:16.546033" elapsed="0.000287"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-03-25T01:08:16.546529" elapsed="0.528745"/>
+</kw>
+<kw name="Login">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-25T01:08:17.076659" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
+<arg>id=user-name</arg>
+<arg>standard_user</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-25T01:08:17.076343" elapsed="1.613813"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-03-25T01:08:18.691146" level="INFO">Typing password into text field 'id=password'.</msg>
+<msg time="2026-03-25T01:08:19.749490" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>id=password</arg>
+<arg>secret_sauce</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-25T01:08:18.690608" elapsed="1.616516"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-03-25T01:08:20.307426" level="INFO">Clicking button 'id=login-button'.</msg>
+<arg>id=login-button</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-25T01:08:20.307266" elapsed="1.656149"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>class=inventory_list</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-25T01:08:21.963949" elapsed="1.046076"/>
+</kw>
+<status status="PASS" start="2026-03-25T01:08:17.075877" elapsed="5.934328"/>
+</kw>
+<kw name="Add Items To Cart">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-03-25T01:08:23.011796" level="INFO">Clicking button 'id=add-to-cart-sauce-labs-backpack'.</msg>
+<arg>id=add-to-cart-sauce-labs-backpack</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-25T01:08:23.011515" elapsed="2.626230"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-03-25T01:08:25.638066" level="INFO">Clicking button 'id=add-to-cart-sauce-labs-bike-light'.</msg>
+<arg>id=add-to-cart-sauce-labs-bike-light</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-25T01:08:25.637906" elapsed="2.617146"/>
+</kw>
+<status status="PASS" start="2026-03-25T01:08:23.010910" elapsed="5.244599"/>
+</kw>
+<kw name="Go To Cart And Remove Itemrobot tests/test_swag_labs.robot">
+<msg time="2026-03-25T01:08:28.262416" level="FAIL">No keyword with name 'Go To Cart And Remove Itemrobot tests/test_swag_labs.robot' found. Did you try using keyword 'Go To Cart And Remove Item' and forgot to use enough whitespace between keyword and arguments?</msg>
+<status status="FAIL" start="2026-03-25T01:08:28.262261" elapsed="0.000286">No keyword with name 'Go To Cart And Remove Itemrobot tests/test_swag_labs.robot' found. Did you try using keyword 'Go To Cart And Remove Item' and forgot to use enough whitespace between keyword and arguments?</status>
+</kw>
+<kw name="Checkout Process">
+<status status="NOT RUN" start="2026-03-25T01:08:28.263252" elapsed="0.000092"/>
+</kw>
+<kw name="Verify Success Message">
+<status status="NOT RUN" start="2026-03-25T01:08:28.263911" elapsed="0.000085"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-03-25T01:08:28.264710" elapsed="2.933220"/>
+</kw>
+<status status="FAIL" start="2026-03-25T01:08:15.305698" elapsed="15.893558">No keyword with name 'Go To Cart And Remove Itemrobot tests/test_swag_labs.robot' found. Did you try using keyword 'Go To Cart And Remove Item' and forgot to use enough whitespace between keyword and arguments?</status>
+</test>
+<status status="FAIL" start="2026-03-25T01:08:15.121339" elapsed="16.080622"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test Swag Labs" id="s1" pass="0" fail="1" skip="0">Test Swag Labs</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
