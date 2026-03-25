@@ -9,21 +9,28 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v5
         with:
           python-version: '3.9'
 
       - name: Install dependencies
         run: |
           pip install --upgrade pip
-          pip install robotframework robotframework-seleniumlibrary
-          # or, if you have a requirements.txt:
-          # pip install -r requirements.txt
+          pip install robotframework robotframework-seleniumlibrary webdriver-manager
 
-      - name: Run Robot tests
-        run: robot tests/
+      - name: Install Chrome
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y google-chrome-stable
+
+      - name: Run Robot tests (headless)
+        run: |
+          robot --variable BROWSER:chrome \
+                --variable URL:https://Kaddeye.github.io/SoftwareTesting/swag_labs.html \
+                tests/
