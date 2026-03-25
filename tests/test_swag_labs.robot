@@ -1,64 +1,47 @@
 *** Settings ***
 Library    SeleniumLibrary
 
+Suite Teardown    Close All Browsers
+
 *** Variables ***
-${URL}    https://kaddeye.github.io/SoftwareTesting/swag_labs.html
+
+${URL}    https://Kaddeye.github.io/SoftwareTesting/swag_labs.html
 
 *** Test Cases ***
-Swag Labs E2E Test
-    ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys
-    Call Method    ${options}    add_argument    --headless
-    Call Method    ${options}    add_argument    --no-sandbox
-    Call Method    ${options}    add_argument    --disable-dev-shm-usage
+Swag Labs E2E Flow
+    Open Browser    ${URL}    chrome    options=add_argument("--headless")
+    Maximize Browser Window
 
-    Create WebDriver    Chrome    options=${options}
-    Go To    ${URL}
-
-    Login
-    Add Items To Cart
-    Go To Checkout
-    Checkout Process
-    Verify Success Message
-
-    [Teardown]    Close Browser
-
-
-*** Keywords ***
-Login
-    Wait Until Page Contains Element    id=username    15s
+    # Login
+    Wait Until Element Is Visible    id=username    5s
     Input Text    id=username    standard_user
     Input Text    id=password    secret_sauce
-    Click Button  id=login-button
+    Click Button    id=login-button
 
-    Wait Until Page Contains Element    id=product-page    15s
+    # Products page
+    Wait Until Element Is Visible    css:.product-card    5s
 
+    # Add multiple items
+    Click Button    xpath=(//button[contains(text(),"Add to Cart")])[1]
+    Click Button    xpath=(//button[contains(text(),"Add to Cart")])[2]
 
-Add Items To Cart
-    Wait Until Page Contains Element    xpath=//button[contains(text(), "Add to Cart")]    15s
+    # Open checkout
+    Click Element    css:.cart-icon
 
-    Click Button    xpath=(//button[contains(text(), "Add to Cart")])[1]
-    Click Button    xpath=(//button[contains(text(), "Add to Cart")])[2]
+    Wait Until Element Is Visible    css:.cart-item    5s
 
+    # Remove one item
+    Click Button    xpath=(//button[contains(text(),"Remove")])[1]
 
-Go To Checkout
-    Wait Until Page Contains Element    id=cart-count    15s
+    # Fill checkout form
+    Input Text    id=first-name    Test
+    Input Text    id=last-name    User
+    Input Text    id=postal-code    12345
 
-    Click Element    xpath=//div[@class='cart-icon']
+    Click Button    xpath=//button[contains(text(),"Complete Purchase")]
 
-    Wait Until Page Contains Element    id=checkout-page    15s
+    # Confirm success
+    Wait Until Element Is Visible    id=confirmation-message    5s
+    Element Should Contain    id=confirmation-message    Thank you for your purchase
 
-
-Checkout Process
-    Wait Until Page Contains Element    id=first-name    15s
-
-    Input Text    id=first-name    Max
-    Input Text    id=last-name     Mustermann
-    Input Text    id=postal-code   12345
-
-    Click Button    xpath=//button[contains(text(), "Complete Purchase")]
-
-    Wait Until Page Contains Element    id=confirmation-page    15s
-
-
-Verify Success Message
-    Wait Until Page Contains    Thank You For Your Order!    15s
+    Close Browser
