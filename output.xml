@@ -1,93 +1,166 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-03-25T01:08:15.120012" rpa="false" schemaversion="5">
+<robot generator="Robot 7.4.2 (Python 3.14.2 on win32)" generated="2026-03-25T02:19:17.916630" rpa="false" schemaversion="5">
 <suite id="s1" name="Test Swag Labs" source="C:\Users\kathi\VisualStudioProjects\SoftwareTesting\robot-testing-project\tests\test_swag_labs.robot">
-<test id="s1-t1" name="Swag Labs E2E Test" line="9">
+<test id="s1-t1" name="Full User Journey - Swag Labs" line="10">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2026-03-25T02:19:18.112837" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x00000256B00581A0&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2026-03-25T02:19:18.109644" elapsed="0.003232"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-03-25T02:19:18.113228" elapsed="0.000255"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-03-25T02:19:18.113772" elapsed="0.000203"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2026-03-25T02:19:18.114238" elapsed="0.000184"/>
+</kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2026-03-25T01:08:15.306885" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com'.</msg>
+<msg time="2026-03-25T02:19:18.114839" level="INFO">Opening browser 'chrome' to base url 'https://Kaddeye.github.io/SoftwareTesting/swag_labs.html'.</msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
+<arg>options=${options}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2026-03-25T01:08:15.306658" elapsed="1.238941"/>
-</kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>0.5s</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2026-03-25T01:08:16.546033" elapsed="0.000287"/>
+<status status="PASS" start="2026-03-25T02:19:18.114645" elapsed="4.229952"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2026-03-25T01:08:16.546529" elapsed="0.528745"/>
+<status status="PASS" start="2026-03-25T02:19:22.345005" elapsed="0.034563"/>
 </kw>
-<kw name="Login">
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2026-03-25T01:08:17.076659" level="INFO">Typing text 'standard_user' into text field 'id=user-name'.</msg>
-<arg>id=user-name</arg>
+<msg time="2026-03-25T02:19:22.380311" level="INFO">Typing text 'standard_user' into text field 'id=username'.</msg>
+<arg>id=username</arg>
 <arg>standard_user</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-25T01:08:17.076343" elapsed="1.613813"/>
+<status status="PASS" start="2026-03-25T02:19:22.379910" elapsed="0.091116"/>
 </kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2026-03-25T01:08:18.691146" level="INFO">Typing password into text field 'id=password'.</msg>
-<msg time="2026-03-25T01:08:19.749490" level="INFO">Temporally setting log level to: NONE</msg>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-25T02:19:22.471803" level="INFO">Typing text 'secret_sauce' into text field 'id=password'.</msg>
 <arg>id=password</arg>
 <arg>secret_sauce</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-25T01:08:18.690608" elapsed="1.616516"/>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-25T02:19:22.471528" elapsed="0.068190"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-03-25T01:08:20.307426" level="INFO">Clicking button 'id=login-button'.</msg>
+<msg time="2026-03-25T02:19:22.540380" level="INFO">Clicking button 'id=login-button'.</msg>
 <arg>id=login-button</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-25T01:08:20.307266" elapsed="1.656149"/>
+<status status="PASS" start="2026-03-25T02:19:22.540068" elapsed="0.054286"/>
 </kw>
 <kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>class=inventory_list</arg>
+<arg>id=products-grid</arg>
+<arg>5s</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2026-03-25T01:08:21.963949" elapsed="1.046076"/>
-</kw>
-<status status="PASS" start="2026-03-25T01:08:17.075877" elapsed="5.934328"/>
-</kw>
-<kw name="Add Items To Cart">
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-03-25T01:08:23.011796" level="INFO">Clicking button 'id=add-to-cart-sauce-labs-backpack'.</msg>
-<arg>id=add-to-cart-sauce-labs-backpack</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-25T01:08:23.011515" elapsed="2.626230"/>
+<status status="PASS" start="2026-03-25T02:19:22.594825" elapsed="1.095985"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2026-03-25T01:08:25.638066" level="INFO">Clicking button 'id=add-to-cart-sauce-labs-bike-light'.</msg>
-<arg>id=add-to-cart-sauce-labs-bike-light</arg>
+<msg time="2026-03-25T02:19:23.691700" level="INFO">Clicking button 'xpath=(//button[contains(text(),'Add to Cart')])[1]'.</msg>
+<arg>xpath=(//button[contains(text(),'Add to Cart')])[1]</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2026-03-25T01:08:25.637906" elapsed="2.617146"/>
+<status status="PASS" start="2026-03-25T02:19:23.691416" elapsed="0.061549"/>
 </kw>
-<status status="PASS" start="2026-03-25T01:08:23.010910" elapsed="5.244599"/>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-03-25T02:19:23.753790" level="INFO">Clicking button 'xpath=(//button[contains(text(),'Add to Cart')])[2]'.</msg>
+<arg>xpath=(//button[contains(text(),'Add to Cart')])[2]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-25T02:19:23.753430" elapsed="0.049709"/>
 </kw>
-<kw name="Go To Cart And Remove Itemrobot tests/test_swag_labs.robot">
-<msg time="2026-03-25T01:08:28.262416" level="FAIL">No keyword with name 'Go To Cart And Remove Itemrobot tests/test_swag_labs.robot' found. Did you try using keyword 'Go To Cart And Remove Item' and forgot to use enough whitespace between keyword and arguments?</msg>
-<status status="FAIL" start="2026-03-25T01:08:28.262261" elapsed="0.000286">No keyword with name 'Go To Cart And Remove Itemrobot tests/test_swag_labs.robot' found. Did you try using keyword 'Go To Cart And Remove Item' and forgot to use enough whitespace between keyword and arguments?</status>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-03-25T02:19:23.803879" level="INFO">Clicking element 'css=.cart-icon'.</msg>
+<arg>css=.cart-icon</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-25T02:19:23.803593" elapsed="0.055096"/>
 </kw>
-<kw name="Checkout Process">
-<status status="NOT RUN" start="2026-03-25T01:08:28.263252" elapsed="0.000092"/>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=checkout-page</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-25T02:19:23.859030" elapsed="0.012075"/>
 </kw>
-<kw name="Verify Success Message">
-<status status="NOT RUN" start="2026-03-25T01:08:28.263911" elapsed="0.000085"/>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-03-25T02:19:23.872060" level="INFO">Clicking button 'xpath=(//button[contains(text(),'Remove')])[1]'.</msg>
+<arg>xpath=(//button[contains(text(),'Remove')])[1]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-25T02:19:23.871630" elapsed="0.051626"/>
 </kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-25T02:19:23.923994" level="INFO">Typing text 'Test' into text field 'id=first-name'.</msg>
+<arg>id=first-name</arg>
+<arg>Test</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-25T02:19:23.923719" elapsed="0.051440"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-25T02:19:23.975849" level="INFO">Typing text 'User' into text field 'id=last-name'.</msg>
+<arg>id=last-name</arg>
+<arg>User</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-25T02:19:23.975601" elapsed="0.052899"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-03-25T02:19:24.029106" level="INFO">Typing text '12345' into text field 'id=postal-code'.</msg>
+<arg>id=postal-code</arg>
+<arg>12345</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-25T02:19:24.028883" elapsed="0.049304"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-03-25T02:19:24.078709" level="INFO">Clicking button 'xpath=//button[contains(text(),'Complete Purchase')]'.</msg>
+<arg>xpath=//button[contains(text(),'Complete Purchase')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-03-25T02:19:24.078484" elapsed="0.050369"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=confirmation-page</arg>
+<arg>5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-03-25T02:19:24.129259" elapsed="0.012206"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-03-25T02:19:24.157592" level="INFO">Element 'id=confirmation-message' contains text 'Thank you for your purchase'.</msg>
+<arg>id=confirmation-message</arg>
+<arg>Thank you for your purchase</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-03-25T02:19:24.141826" elapsed="0.016029"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-03-25T02:19:26.159693" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-03-25T02:19:24.158537" elapsed="2.001416"/>
+</kw>
+<status status="PASS" start="2026-03-25T02:19:18.108655" elapsed="8.052251"/>
+</test>
 <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2026-03-25T01:08:28.264710" elapsed="2.933220"/>
+<status status="PASS" start="2026-03-25T02:19:26.162491" elapsed="2.426226"/>
 </kw>
-<status status="FAIL" start="2026-03-25T01:08:15.305698" elapsed="15.893558">No keyword with name 'Go To Cart And Remove Itemrobot tests/test_swag_labs.robot' found. Did you try using keyword 'Go To Cart And Remove Item' and forgot to use enough whitespace between keyword and arguments?</status>
-</test>
-<status status="FAIL" start="2026-03-25T01:08:15.121339" elapsed="16.080622"/>
+<status status="PASS" start="2026-03-25T02:19:17.917979" elapsed="10.670950"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="Test Swag Labs" id="s1" pass="0" fail="1" skip="0">Test Swag Labs</stat>
+<stat name="Test Swag Labs" id="s1" pass="1" fail="0" skip="0">Test Swag Labs</stat>
 </suite>
 </statistics>
 <errors>
